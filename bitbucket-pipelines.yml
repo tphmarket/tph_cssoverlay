@@ -1,22 +1,8 @@
-image: atlassian/default-image:2
-
+image: abesiyo/s3
 pipelines:
-  default:
-    - step:
-        script:
-          - mkdir artifact
-          - echo "Pipelines is awesome!" > artifact/index.html
-        artifacts:
-          - artifact/*
-    - step:
-        deployment: production
-        script:
-          - pipe: atlassian/aws-s3-deploy:0.3.7
-            variables:
-              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-              AWS_DEFAULT_REGION: 'ca-central-1'
-              S3_BUCKET: 'market-tph-cdn-service'
-              EXPIRES: '2018-10-01'
-              LOCAL_PATH: 'artifact'
-              ACL: 'public-read'
+  branches:
+    master:
+      - step:
+          script:
+            - s3 --region "<region>" rm s3://market-tph-cdn-service
+            - s3 --region "<region>" sync . s3://market-tph-cdn-service
