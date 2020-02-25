@@ -4,5 +4,5 @@ pipelines:
     master:
       - step:
           script:
-            - s3 --region "<region>" rm s3://market-tph-cdn-service
-            - s3 --region "<region>" sync . s3://market-tph-cdn-service
+            - s3 --region "ca-central-1" rm s3://market-tph-cdn-service
+            - s3 --region "ca-central-1" sync . s3://market-tph-cdn-service
