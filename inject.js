@@ -6,7 +6,7 @@ if(hour>12){
 }else{
   var numberOfdays = 2;
 }
-document.getElementById("number_of_days").innerHTML = "Delivered by <br/> <strong>" + addBusinessDays(d, numberOfdays) +"<strong>";
+document.getElementById("number_of_days").innerHTML = "Delivered by <br> <strong>" + addBusinessDays(d, numberOfdays) +"<strong>";
 function getHour() {
   var d = new Date();
   var n = d.getHours();
