@@ -51,3 +51,20 @@ z-index: 1000;
   width: 100%;
   margin: 0 auto;
 }
+
+/* Added zoom Effect on hover image added by Bhaumik Patel*/
+
+/* [1] The container */
+.tph-img-hover-zoom {  
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.tph-img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.tph-img-hover-zoom:hover img {
+  transform: scale(1.1);
+}
