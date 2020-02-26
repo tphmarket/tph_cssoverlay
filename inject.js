@@ -1,7 +1,7 @@
 var numberOfdays = 0;
 var d = new Date();
 var hour = getHour();
-if(hour>12){
+if(hour >= 12){
   var numberOfdays = 3;
 }else{
   var numberOfdays = 2;
@@ -20,4 +20,10 @@ function addBusinessDays(d,n) {
     var myDate = days[d.getDay()] + ", " + month[d.getMonth()] + " " + d.getDate();
     return myDate;
 }
-document.getElementById("number_of_days").innerHTML = "Delivered by <br> <strong>" + addBusinessDays(d, numberOfdays) +"<strong>";
+
+
+if(hour <= 12) { 
+  var TooltipMessage = "<span class='deliveryToolTip'>If you order after 12:00 PM then order will be delivered on " + (addBusinessDays(d, numberOfdays+1))+"</span>";
+}
+
+document.getElementById("number_of_days").innerHTML = "Delivered by <br> <strong>" + addBusinessDays(d, numberOfdays) +"<strong>"+ TooltipMessage +"";
