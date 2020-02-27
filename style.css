@@ -85,7 +85,7 @@ html {
 /* Image overlay issue on designer tool*/
 .cloudlab-gallery-index .template-item-bundle .product-thumbnail-container img,
 .cloudlab-gallery-index .template-item .product-thumbnail-container img{
-  width:11em;
+  width:auto !important;
   max-height:100%;
   -o-object-fit:contain;
   object-fit:contain
